@@ -12,7 +12,7 @@ function init() {
 		top: '250px',
 		width: 0,
 		height: 0,
-	} );
+	});
 
 	
 	
@@ -28,7 +28,7 @@ function init() {
 
 
 	//Randomly orders number array
-	numbers.sort( function() {return Math.random() -.5 } ); 
+	numbers.sort( function() {return Math.random() -.5 } )
 	
 	for ( var i=0; i<10; i = i+1 ) {
 		$('<div>' + numbers[1] + '</div>').data( 'number', numbers[i] ).attr( 'id', 'card' +numbers[1]		 ).appendTo( '#cardPile' ).draggable().droppable({
@@ -64,5 +64,20 @@ function init() {
 		ui.draggable.draggable( 'option', 'revert', false );
 		correctCards++;
   } 
+  
+ 	if (correctCards == 10 ) {
+		$('successMessage')
+		.show()
+		.fadeIn('slow')
+		.animate( {
+			left: '380px',
+			top: '200px',
+			width: '400px',
+			height: '100px',
+			opacity: 1
+			
+		});
+			
+	}
 	
 }<!--closes init function-->
